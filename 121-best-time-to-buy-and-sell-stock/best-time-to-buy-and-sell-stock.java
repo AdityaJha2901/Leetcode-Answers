@@ -2,25 +2,27 @@ class Solution {
     public int maxProfit(int[] prices) {
         int profit = 0;
         int CP = Integer.MAX_VALUE;
-        int SP = Integer.MIN_VALUE;
-        for(int i = 0; i<prices.length-1 ; i++){
+        int ith = 0;
+        // int SP = Integer.MIN_VALUE;
+        for(int i = 0; i<prices.length ; i++){
             if(prices[i]<CP){
                 CP = prices[i];
-                SP = 0;
                 
-                for(int j = i; j<prices.length; j++){
+              
+                // SP = 0;
                 
-                    if(SP<prices[j]){
-                        SP = prices[j];
-                    }      
-                }
+            //     for(int j = i; j<prices.length; j++){
+                
+            //         if(SP<prices[j]){
+            //             SP = prices[j];
+            //         }      
+            //     }
             }
-            
-
-            if(profit<SP-CP){
-                profit = SP-CP;
-            }
-        }
+            profit = Math.max(profit, prices[i]-CP);
+        }    
+        
+               
         return profit;
+        
     }
 }
